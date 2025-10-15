@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import SearchResults from "./Components/SearchResults";
 import Playlist from "./Components/Playlist";
+import Tracklist from "./Components/Tracklist";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,16 @@ function App() {
     { title: "Bound 2", artist: "Kanye West" },
   ];
 
+  const tracklist = [
+    {
+      title: "All Night (feat. Knox Fortune)",
+      artist: "Change the Rapper, Knox Fortune",
+    },
+    { title: "He Knows My Name", artist: "Francesca Battistelli" },
+    { title: "Hustler Musik", artist: "Lil Wayne" },
+    { title: "Im so Paid", artist: "Akon, Jeezy, Lil Wayne" },
+  ];
+
   return (
     <>
       <SearchBar
@@ -42,6 +53,7 @@ function App() {
       />
       <SearchResults songResults={songResults} />
       <Playlist playlistTitle={playlistTitle} playlist={playlist} />
+      <Tracklist tracklist={tracklist} />
     </>
   );
 }
