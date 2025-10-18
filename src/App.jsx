@@ -3,6 +3,7 @@ import SearchBar from "./Components/SearchBar";
 import SearchResults from "./Components/SearchResults";
 import Playlist from "./Components/Playlist";
 import Tracklist from "./Components/Tracklist";
+import Track from "./Components/Track";
 import "./App.css";
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
       <SearchResults songResults={songResults} />
       <Playlist playlistTitle={playlistTitle} playlist={playlist} />
       <Tracklist tracklist={tracklist} />
+      <Track />
     </>
   );
 }
