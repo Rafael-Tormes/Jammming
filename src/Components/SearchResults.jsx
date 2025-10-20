@@ -11,6 +11,7 @@ export default function SearchResults(prop) {
           </li>
         ))}
       </ul>
+      <button type="submit">Add to Playlist</button>
     </>
   );
 }
