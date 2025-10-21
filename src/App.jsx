@@ -9,19 +9,19 @@ import "./App.css";
 function App() {
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedSong, setSelectedSong] = useState([]);
-  const [playlistTitle, setPlaylistTitle] = useState("");
+  const [selectedSong, setSelectedSong] = useState({});
+  const [playlist, setPlaylist] = useState([]);
 
   const handleSearchText = (e) => {
     setSearchText(e.target.value);
   };
 
-  const handlePlaylistTitle = (e) => {
-    setPlaylistTitle(e.target.value);
-  };
-
   const handleSelectedSong = (e) => {
     setSelectedSong(e.target.value);
+  };
+
+  const addToPlaylist = (selectedSong) => {
+    setPlaylist((prevPlaylist) => [...prevPlaylist, selectedSong]);
   };
 
   const songResults = [
@@ -37,17 +37,6 @@ function App() {
       album: "Test",
     },
     { title: "Me Retiro", artist: "Romy Ram", album: "Test" },
-  ];
-
-  const playlist = [
-    { title: "Sorry 4 The Wait", artist: "Lil Wayne", album: "Test" },
-    { title: "Red Lights", artist: "Wale the Sage", album: "Test" },
-    {
-      title: "NEVER GET USED TO THIS",
-      artist: "Forrest Frank, JVKE",
-      album: "Test",
-    },
-    { title: "Bound 2", artist: "Kanye West", album: "Test" },
   ];
 
   const tracklist = [
@@ -71,12 +60,12 @@ function App() {
         searchText={searchText}
         onSearchTextChange={handleSearchText}
       />
-      <SearchResults songResults={songResults} />
-      <Playlist
-        playlistTitle={playlistTitle}
-        playlist={playlist}
-        selectedSong={handleSelectedSong}
+      <SearchResults
+        songResults={songResults}
+        selectedSong={selectedSong}
+        addToPlaylist={addToPlaylist}
       />
+      <Playlist playlistTitle={playlist.title} playlist={playlist} />
       <Tracklist tracklist={tracklist} />
       <Track />
     </>

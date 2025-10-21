@@ -8,10 +8,10 @@ export default function SearchResults(prop) {
         {prop.songResults.map((song) => (
           <li key={song.title}>
             <strong>{song.title}</strong> - {song.artist}
+            <button onClick={() => prop.addToPlaylist(song)}>Add</button>
           </li>
         ))}
       </ul>
-      <button type="submit">Add to Playlist</button>
     </>
   );
 }
